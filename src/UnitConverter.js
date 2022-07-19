@@ -5,13 +5,14 @@ function MinutesToHours() {
     const [flipped, setFlipped] = React.useState(false);
 
     const onChange = (event) => {
-    setAmount(event.target.value);
+        setAmount(event.target.value);
     };
     const reset = () => setAmount(0);
     const onFlip = () => {
-    setFlipped((current) => !current);
-    reset();
+        setFlipped((current) => !current);
+        reset();
     };
+
     return (
     <div>
         <h3>Minutes to Hours</h3>
@@ -38,9 +39,7 @@ function MinutesToHours() {
         />
         </div>
         <button onClick={reset}>Reset</button>
-        <button onClick={onFlip}>
-        {flipped ? "Minutes->Hours" : "Hours->Minutes"}
-        </button>
+        <button onClick={onFlip}>{flipped ? "Minutes->Hours" : "Hours->Minutes"}</button>
     </div>
     );
 }
