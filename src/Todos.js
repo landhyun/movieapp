@@ -30,7 +30,7 @@ function Todos() {
       </form>
       <hr />
       <ul>
-        {todos.map((item, index) => (
+        {todos.reserve().map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
