@@ -24,7 +24,7 @@ function Todos() {
           onChange={onChange}
           value={todo}
           type="text"
-          placeholder="to do"
+          placeholder="오늘의 일정을 입력해주세요."
         />
         <button>Add todo</button>
       </form>
