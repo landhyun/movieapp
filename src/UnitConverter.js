@@ -103,7 +103,7 @@ function UnitConverter() {
         <option value="1">cm & m</option>
         </select>
         <hr />
-        {index === "xx" ? "메뉴를 선택하세요!😎" : null}
+        {index === "xx" ? "메뉴를 선택하세요! 😎" : null}
         {index === "0" ? <MinutesToHours /> : null}
         {index === "1" ? <CmToM /> : null}
     </div>
