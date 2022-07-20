@@ -1,25 +1,39 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-function Hello() {
-    function effectFn() {
-        console.log("생성됨. 해당 function의 return 요소를 보여줌");
-        return () => console.log("사라짐. 여기서 return을 한번 더 해주어 반대가 되었기 때문에 해당 function의 return 요소가 없음");
-    }
-    useEffect(effectFn, [])
-    return <h1>Hello</h1>;
-}
-
 function App() {
-    const [show, setShow] = useState(false);
-    const onClick = () => {
-        setShow((prev) => !prev);
-    }
+    const [todo, setTodo] = useState("");
+    const [todos, setTodos] = useState([]);
+
+    const onChange = (event) => {
+        setTodo(event.currentTarget.value)
+    };
+    const onSubmit = (event) => {
+        event.preventDefault();
+        if (todo === "") {
+            return;
+        }
+        setTodo("");
+        setTodos((currentArray) => [todo, ...currentArray]);
+        console.log(todos);
+        const list = document.createElement("li");
+        list.innerHTML = {todo};
+    };
     return (
         <div>
-            <button onClick={onClick}>{show ? "hide" : "show"}</button>   
-            {show ? <Hello/> : null}
-        </div>
+        <h1>My todo list : {todos.length}</h1>
+        <form onSubmit={onSubmit}>
+          <input
+            onChange={onChange}
+            value={todo}
+            type="text"
+            placeholder="to do"
+            />
+        <button>Add todo</button>  
+        </form> 
+        <ul>
+        </ul>    
+      </div>
     );
 }
 
