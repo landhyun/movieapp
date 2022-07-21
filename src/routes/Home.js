@@ -44,13 +44,13 @@ function Home() {
         <div>
           {movies.map((movie) => ( 
             <Movie
-              id={movie.id}
-              key={movie.id}
-              coverImage={movie.medium_cover_image}
-              title={movie.title}
-              year={movie.year}
-              summary={movie.summary}
-              genres={movie.genres}
+                id={movie.id}
+                key={movie.id}
+                coverImage={movie.medium_cover_image}
+                title={movie.title}
+                rating={movie.rating}
+                year={movie.year}
+                genres={movie.genres}
             />
           ))}
         </div>
