@@ -14,6 +14,7 @@ function App() {
         setMovies(json.data.movies);
         setLoading(!loading);
     }
+    useEffect(() => { getMovies(); }, []);
     
     /* useEffect()를 이용한 api 호출
     useEffect(() => {
@@ -28,11 +29,26 @@ function App() {
     }, [])
     */
     
-    console.log(movies);
     return (
-        <>
-            {loading ? <h1>Loading...</h1> : null}
-        </>
+      <>
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <div>
+            {movies.map((movie) => (
+                <div key={movie.id}>
+                <img key={movie.id} src={movie.medium_cover_image} />
+                    <h2>{movie.title}</h2>
+                    <p>{movie.year}</p>
+                    <p>{movie.summary}</p>   
+                    <ul>
+                        {movie.genres.map((gen) => (<li key={gen}>{gen}</li>))}
+                    </ul>    
+              </div>
+            ))}
+          </div>
+        )}
+      </>
     );
 }
 
